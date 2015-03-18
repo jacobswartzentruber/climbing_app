@@ -3,6 +3,18 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
                     format: {with: VALID_EMAIL_REGEX},
-                    uniqueness: true
+                    uniqueness: { case_sensitive: false }
   has_secure_password
+  
+  # Returns the hash digest of the given string
+  def User.digest(string)
+    cost = cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+  
+  #Returns true if the given token matches the digest
+  def authenticated?(token)
+    BCrypt::Password.new(:password_digest).is_password?(token)
+  end
 end
