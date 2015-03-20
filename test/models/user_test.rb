@@ -46,15 +46,19 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
-  test "password can't be blank" do
-    
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
   end
   
-  test "password can't be longer than 72 chars" do
-
+  test "password can't be shorter than 6 chars" do
+    @user.password = @user.password_confirmation = 'a' * 5
+    assert_not @user.valid?
   end
   
-  test "password must match password confirmation" do
-
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?(:remember, '')
   end
 end
