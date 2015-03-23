@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'gyms/new'
+
+  get 'gyms/create'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users
+  resources :gyms
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 
