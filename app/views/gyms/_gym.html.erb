@@ -1,3 +1,7 @@
 <p>
   <%= link_to gym.user.name, gym_path(gym) %> (<%= gym.user.email %>)
+  <% if current_user.admin? && !current_user?(gym.user) %>
+    <%= link_to "delete", gym, method: :delete,
+                                data: { confirm: "You sure?" } %>
+  <% end %>
 </p>
