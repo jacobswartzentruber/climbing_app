@@ -1,5 +1,5 @@
 <p>
-  <%= link_to climber.user.name, climber_path(climber) %> (<%= climber.user.email %>)
+  <%= link_to climber.user.name, climber_path(climber) %>
   <% if current_user.admin? && !current_user?(climber.user) %>
     <%= link_to "delete", climber, method: :delete,
                                 data: { confirm: "You sure?" } %>
