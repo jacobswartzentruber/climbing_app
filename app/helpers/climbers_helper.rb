@@ -1,0 +1,2 @@
+module ClimbersHelper
+end

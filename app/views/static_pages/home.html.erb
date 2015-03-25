@@ -1,8 +1,53 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>Welcome to ClimbON</h1>
-    <p>This is an application that allows you to track your workout progress and
-    catalogue the routes you have climbed</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+<!-- Carousel ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag("first_slide.png", alt: "first_slide") %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Welcome to ClimbON</h1>
+          <p>ClimbON is an application that allows you to track your workout progress and
+             catalogue the routes you have climbed</p>
+          <%= link_to "Sign up today", new_climber_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag("second_slide.png", alt: "second_slide") %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Gym Owner?</h1>
+          <p>Create a gym profile to showcase your routes and track
+             their popularity.  Reach out to the climbing community
+             by posting upcoming events</p>
+          <%= link_to "Create Gym Profile", new_gym_path, class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag("third_slide.png", alt: "third_slide") %>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Interested in following development?</h1>
+          <p>Visit the development blog to keep up to date with the newest
+             improvements and additions to ClimbON!</p>
+          <%= link_to "Learn More", "https://acuriouscrossbreed.wordpress.com/", class: "btn btn-lg btn-primary" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><!-- /.carousel -->

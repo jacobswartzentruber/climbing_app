@@ -4,6 +4,10 @@ class GymsController < ApplicationController
     @gyms = Gym.all
   end
   
+  def show
+    @gym = Gym.find(params[:id])
+  end
+  
   def new
     @gym = Gym.new
     @gym.build_user
@@ -17,7 +21,6 @@ class GymsController < ApplicationController
     else
       render 'new'
     end
-    
   end
   
   private

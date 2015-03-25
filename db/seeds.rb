@@ -6,20 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(name: "Jake", email: "jake@example.com",
+climber = Climber.new
+climber.build_user(name: "Jake", email: "jake@example.com",
             password: "password", password_confirmation: "password",
             admin: true,
             activated: true,
             activated_at: Time.zone.now)
+climber.save!
             
 50.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@example.com"
   password = "password"
-  User.create!(name:  name,
+  climber2 = Climber.new
+  climber2.build_user(name:  name,
                email: email,
                password:              password,
                password_confirmation: password,
                activated: true,
                activated_at: Time.zone.now)
+  climber2.save!
 end

@@ -113,7 +113,7 @@ footer ul li {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  //width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
@@ -144,13 +144,28 @@ input {
   margin-left: 0;
 }
 
-/* Jumbotron Imaging */
+/* Carousel Imaging */
 
-.jumbotron{
-  background-image: url(http://svgopen.org/2011/papers/25-Webbased_Vector_Terrain_Exploration/lz.png);
-  background-position: 0% 25%;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Carousel base class */
+.carousel {
+  height: 500px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  margin-bottom: 100px;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
 }
 
 /* Miscellaneous  */

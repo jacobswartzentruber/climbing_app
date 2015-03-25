@@ -4,7 +4,16 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-    
+      
+      <div class="form-group">
+        <%= f.radio_button :profile, 'climber', :checked => true %> 
+        <%= label :profile_climber, 'I want to register as a Climber' %>
+      </div>
+      <div class="form-group">
+        <%= f.radio_button :profile, 'gym' %> 
+        <%= label :profile_gym, 'I want to register as a Gym' %>
+      </div>
+      
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
       

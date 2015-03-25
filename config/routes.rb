@@ -18,12 +18,14 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'help' => 'static_pages#help'
-  get 'signup' => 'users#new'
+  get 'climber_signup' => 'climbers#new'
+  get 'gym_signup' => 'gym#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users
+  #resources :users
   resources :gyms
+  resources :climbers
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
 

@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323183959) do
+ActiveRecord::Schema.define(version: 20150323231847) do
+
+  create_table "climbers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,8 +37,7 @@ ActiveRecord::Schema.define(version: 20150323183959) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.integer  "profile_id"
+    t.string   "profile_type"
   end
-
-  add_index "users", ["profile_id"], name: "index_users_on_profile_id"
 
 end

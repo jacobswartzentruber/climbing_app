@@ -1,8 +1,8 @@
-<h1>Gym Signup</h1>
+<h1>Climber Signup</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@gym) do |f| %>
+    <%= form_for(@climber) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       
       <%= f.fields_for :user do |builder| %>
@@ -20,10 +20,9 @@
         
         <% end %>
         <p>
-          Not the owner of a gym?
-          <%= link_to "Create your individual climber profile here", new_climber_path %>
+          Are you the owner of a gym?
+          <%= link_to "Create your gym profile here", new_gym_path %>
         </p>
-      
       <%= f.submit "Create My Account", class: "btn btn-primary" %>
     <% end %>
   </div>
