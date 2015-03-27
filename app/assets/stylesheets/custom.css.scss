@@ -168,6 +168,23 @@ input {
   height: 500px;
 }
 
+/* Route Partials */
+
+.route{
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
+  font-size: 1.9em;
+  list-style: none;
+    a{
+      color: #777;
+        &:hover{
+          text-decoration: none;
+        }
+    }
+}
+
 /* Miscellaneous  */
 
 .debug_dump {

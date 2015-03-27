@@ -1,6 +1,5 @@
-<p>
-  <%= link_to route.name, gym_route_path(route.gym, route) %>
-  <%= route.color %>
-  <%= route.difficulty %>
-  <%= route.description %>
-</p>
+<li class="route">
+  <span style="color: <%=route.color%>"><%= route.difficulty %></span>
+  <%= link_to "\""+route.name+"\"", gym_route_path(route.gym, route) %>
+</li>
+
