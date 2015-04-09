@@ -1,5 +1,9 @@
 <h1>"<%= @route.name %>"</h1>
 
-<h2><%= @route.difficulty %> <%= @route.color %></h2>
+<p>Difficulty: <%= @route.difficulty %> <%= @route.color %></p>
+
+<p>Date Route Set: <%= @route.created_at.strftime("%A %B %d, %Y") %></p>
 
 <p>Description of route: <%= @route.description %></p>
+
+<%= link_to "Back to Gym Profile", @gym %>
