@@ -1,5 +1,13 @@
-<div class="route">
-  <span style="color: <%=route.color%>"><%= route.difficulty %></span>
-  <%= link_to "\""+route.name+"\"", gym_route_path(route.gym, route) %>
-</div>
+<li id="route-<%= route.id %>">
+  <span class="title">
+  	<%= link_to "\""+route.name+"\"", gym_route_path(route.gym, route) %> - 
+  	<%= route.difficulty %>
+  </span>
+  <span class="content">
+  	<%= route.description %>
+  </span>
+  <span class="timestamp">
+  	Created on <%= route.created_at.strftime("%A %B %d, %Y") %>
+  </span>
+</li>
 

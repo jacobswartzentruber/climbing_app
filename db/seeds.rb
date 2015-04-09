@@ -13,7 +13,14 @@ climber.build_user(name: "Jake", email: "jake@example.com",
             activated: true,
             activated_at: Time.zone.now)
 climber.save!
-            
+
+gym = Gym.new
+gym.build_user(name: "Rock Gym", email: "rockgym@example.com",
+            password: "password", password_confirmation: "password",
+            activated: true,
+            activated_at: Time.zone.now)
+gym.save!
+
 50.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@example.com"

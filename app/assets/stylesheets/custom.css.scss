@@ -167,18 +167,27 @@ input {
   height: 500px;
 }
 
-/* Route Partials */
+/* routes */
 
-.route{
-  margin-bottom: 10px;
-  font-size: 1.5em;
+.routes {
   list-style: none;
-    a{
-      color: #777;
-        &:hover{
-          text-decoration: none;
-        }
-    }
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .title {
+    display: block;
+  }
+  .content {
+    display: block;
+    margin-left: 20px;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 20px;
+  }
 }
 
 /* Miscellaneous  */
