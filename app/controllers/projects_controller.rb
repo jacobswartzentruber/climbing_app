@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     route = Project.find(params[:id]).route
     climber = current_user.profile
     climber.remove_project(route)
+    flash[:success] = "Route removed from projects"
     redirect_to climber
   end
 end

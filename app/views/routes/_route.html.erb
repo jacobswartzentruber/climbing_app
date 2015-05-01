@@ -1,5 +1,5 @@
 <li id="route-<%= route.id %>">
-  <% if logged_in? %>
+  <% if logged_in? && current_user.profile_type == "Climber" %>
     <% if current_user.profile.working_on?(route) %>
       <%= form_for(current_user.profile.projects.find_by(route_id: route.id),
                    html: { method: :delete }) do |f| %>

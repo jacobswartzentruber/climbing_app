@@ -14,13 +14,6 @@ climber.build_user(name: "Jake", email: "jake@example.com",
             activated_at: Time.zone.now)
 climber.save!
 
-gym = Gym.new
-gym.build_user(name: "Rock Gym", email: "rockgym@example.com",
-            password: "password", password_confirmation: "password",
-            activated: true,
-            activated_at: Time.zone.now)
-gym.save!
-
 50.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@example.com"
@@ -33,4 +26,23 @@ gym.save!
                activated: true,
                activated_at: Time.zone.now)
   climber2.save!
+end
+
+gym = Gym.new
+gym.build_user(name: "Rock Gym", email: "rockgym@example.com",
+            password: "password", password_confirmation: "password",
+            activated: true,
+            activated_at: Time.zone.now)
+gym.save!
+
+10.times do |n|
+  name  = Faker::Address.street_name
+  difficulty = "V"+Faker::Number.digit.to_s
+  color = "#FF0000"
+  description = Faker::Lorem.sentence
+  gym.routes.build(name:  name,
+                   difficulty: difficulty,
+                   color: color,
+                   description: description)
+  gym.save!
 end
