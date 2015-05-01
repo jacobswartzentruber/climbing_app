@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  climber_id: 1
+  route_id: 1
+  completed: false
+
+two:
+  climber_id: 1
+  route_id: 1
+  completed: false

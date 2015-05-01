@@ -1,4 +1,17 @@
 <li id="route-<%= route.id %>">
+  <% if logged_in? %>
+    <% if current_user.profile.working_on?(route) %>
+      <%= form_for(current_user.profile.projects.find_by(route_id: route.id),
+                   html: { method: :delete }) do |f| %>
+        <%= f.submit "Remove from my projects", class: "btn pull-right" %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.profile.projects.build) do |f| %>
+        <div><%= hidden_field_tag :route_id, route.id %></div>
+        <%= f.submit "Add to my projects", class: "btn btn-primary pull-right" %>
+      <% end %>
+    <% end %>
+  <% end %>
   <span class="title">
   	<%= link_to "\""+route.name+"\"", gym_route_path(route.gym, route) %> - 
   	<%= route.difficulty %>
@@ -10,4 +23,3 @@
   	Created on <%= route.created_at.strftime("%A %B %d, %Y") %>
   </span>
 </li>
-
