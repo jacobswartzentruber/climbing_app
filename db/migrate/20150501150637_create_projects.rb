@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.integer :climber_id
       t.integer :route_id
-      t.boolean :completed
+      t.boolean :completed, default: false
 
       t.timestamps null: false
     end

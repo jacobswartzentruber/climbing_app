@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20150501150637) do
   create_table "projects", force: :cascade do |t|
     t.integer  "climber_id"
     t.integer  "route_id"
-    t.boolean  "completed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "completed",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "projects", ["climber_id", "route_id"], name: "index_projects_on_climber_id_and_route_id", unique: true

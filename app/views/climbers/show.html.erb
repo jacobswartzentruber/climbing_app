@@ -1,9 +1,15 @@
 <h1><%= @climber.user.name %>'s Profile</h1>
 <div class="row">
-  <section class="col-md-8 col-md-offset-2">
-    <h2> <%=@climber.user.name%>'s Routes </h2>
-    <ol class="routes">
-    	<%= render @climber.routes %>
-  	</ol>
+  <section class="col-md-6">
+    <h2> Projects </h2>
+    <div class="routes">
+    	<%= render @climber.routes.uncompleted %>
+  	</div>
+  </section>
+  <section class="col-md-6">
+    <h2> Completed Routes </h2>
+    <div class="routes">
+    	<%= render @climber.routes.completed %>
+  	</div>
   </section>
 </div>

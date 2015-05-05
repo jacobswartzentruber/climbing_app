@@ -16,4 +16,11 @@ class ProjectsController < ApplicationController
     flash[:success] = "Route removed from projects"
     redirect_to climber
   end
+
+  def complete
+    project = Project.find(params[:id])
+    project.update_attribute(:completed, true)
+    flash[:success] = "Route completed"
+    redirect_to current_user.profile
+  end
 end

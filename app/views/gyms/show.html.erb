@@ -2,15 +2,13 @@
 <div class="row">
   <section class="col-md-6">
     <h2> Current Routes </h2>
-    <ol class="routes">
+    <div class="routes">
 	    <%= render @gym.routes %>
-	  	<li>
-		    <% if current_user == @gym.user %>
-		      <%= link_to "Create a New Route", new_gym_route_path(@gym),
-		                  class: "btn btn-primary btn-xs"%>
-		    <% end %>
-		  </li>
-    </ol>
+	    <% if current_user == @gym.user %>
+	      <%= link_to "Create a New Route", new_gym_route_path(@gym),
+	                  class: "btn btn-primary btn-xs"%>
+	    <% end %>
+    </div>
   </section>
   <section class="col-md-6">
     <h2> Upcoming Events </h2>
