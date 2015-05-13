@@ -5,16 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+if Rails.env.development?
+  climber = Climber.new
+  climber.build_user(name: "Jake", email: "jake@example.com",
+              password: "password", password_confirmation: "password",
+              admin: true,
+              activated: true,
+              activated_at: Time.zone.now)
+  climber.save!
+end
 
 climber = Climber.new
-climber.build_user(name: "Jake", email: "jake@example.com",
+climber.build_user(name: "Sandbox Climber", email: "sandboxClimber@example.com",
             password: "password", password_confirmation: "password",
-            admin: true,
             activated: true,
             activated_at: Time.zone.now)
 climber.save!
 
-50.times do |n|
+30.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@example.com"
   password = "password"
@@ -29,7 +37,7 @@ climber.save!
 end
 
 gym = Gym.new
-gym.build_user(name: "Rock Gym", email: "rockgym@example.com",
+gym.build_user(name: "Sandbox Gym", email: "sandboxGym@example.com",
             password: "password", password_confirmation: "password",
             activated: true,
             activated_at: Time.zone.now)

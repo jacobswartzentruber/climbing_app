@@ -168,26 +168,30 @@ input {
 }
 
 /* routes */
-
-.route{
-  padding: 10px 0;
-  border-top: 1px solid #e8e8e8;
-  .image{
-    float: left;
-    margin: 0 10px 10px 0;
+.routes{
+  .btn{
+    margin-bottom: 10px;
   }
-  .content{
-    display: block;
-    .description {
-      margin-left: 20px;
+  .route{
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    .image{
+      float: left;
+      margin: 0 10px 10px 0;
     }
-    .timestamp {
-      color: $gray-light;
-      margin-left: 20px;
+    .content{
+      display: block;
+      .description {
+        margin-left: 20px;
+      }
+      .timestamp {
+        color: $gray-light;
+        margin-left: 20px;
+      }
     }
-  }
-  .status {
-    clear: both;
+    .status {
+      clear: both;
+    }
   }
 }
 

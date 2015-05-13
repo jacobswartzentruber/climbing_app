@@ -3,11 +3,11 @@
   <section class="col-md-6">
     <h2> Current Routes </h2>
     <div class="routes">
+      <% if current_user == @gym.user %>
+        <%= link_to "Create a New Route", new_gym_route_path(@gym),
+                    class: "btn btn-primary btn-xs"%>
+      <% end %>
 	    <%= render @gym.routes %>
-	    <% if current_user == @gym.user %>
-	      <%= link_to "Create a New Route", new_gym_route_path(@gym),
-	                  class: "btn btn-primary btn-xs"%>
-	    <% end %>
     </div>
   </section>
   <section class="col-md-6">
