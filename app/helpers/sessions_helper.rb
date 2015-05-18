@@ -22,6 +22,10 @@ module SessionsHelper
       end
     end
   end
+
+  def current_profile
+    current_user.profile
+  end
   
   # Returns true for a logged in user
   def logged_in?

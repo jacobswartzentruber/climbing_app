@@ -1,4 +1,4 @@
-<div id="route-<%= route.id %>" class="route">
+<div id="route-<%= route.id %>" class="route <%=route.project_status(current_user, logged_in?)%>">
   <div class="image">
     <%= image_tag("400x250.gif", size:"200x125" ) %>
   </div>
@@ -14,22 +14,19 @@
       Created on <%= route.created_at.strftime("%A %B %d, %Y") %>
     </div>
   </div>
+  
   <div class="status">
     <% if logged_in? && current_user.profile_type == "Climber" %>
-      <% if current_user.profile.working_on?(route) %>
-        <% if !current_user.profile.completed_project?(route) %>
-          <%= form_for(current_user.profile.projects.find_by(route_id: route.id),
-                       html: { method: :delete }) do |f| %>
-            <%= f.submit "Remove from my projects", class: "btn btn-default btn-sm" %>
-          <% end %>
-          <%= link_to "Completed?", complete_project_path(current_user.profile.projects.find_by(route_id: route.id)), method: :put,
+      <% if current_profile.working_on?(route) %>
+        <% if !current_profile.completed_project?(route) %>
+          <%= link_to "Remove from my projects", project_path(current_profile.projects.find_by(route_id: route.id)), method: :delete,
+                                    class: "btn btn-default btn-sm" %>
+          <%= link_to "Completed?", complete_project_path(current_profile.projects.find_by(route_id: route.id)), method: :put,
                                     class: "btn btn-primary btn-sm" %>
         <% end %>
       <% else %>
-        <%= form_for(current_user.profile.projects.build) do |f| %>
-          <div><%= hidden_field_tag :route_id, route.id %></div>
-          <%= f.submit "Add to my projects", class: "btn btn-primary btn-sm" %>
-        <% end %>
+        <%= link_to "Add to my projects", projects_path(route_id: route.id, :method => :post),
+                                    class: "btn btn-primary btn-sm" %>
       <% end %>
     <% end %>
   </div>

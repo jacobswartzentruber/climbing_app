@@ -30,4 +30,5 @@ class Climber < ActiveRecord::Base
   def completed_project?(project_route)
     self.projects.find_by(route_id: project_route.id).completed
   end
+
 end
