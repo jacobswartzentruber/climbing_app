@@ -25,7 +25,7 @@
                                     class: "btn btn-primary btn-sm" %>
         <% end %>
       <% else %>
-        <%= link_to "Add to my projects", projects_path(route_id: route.id, :method => :post),
+        <%= link_to "Add to my projects", projects_path(climber_id: current_profile.id, route_id: route.id), method: :post,
                                     class: "btn btn-primary btn-sm" %>
       <% end %>
     <% end %>
